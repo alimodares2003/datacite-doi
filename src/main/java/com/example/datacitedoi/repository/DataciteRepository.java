@@ -21,6 +21,7 @@ public class DataciteRepository implements DoiRepository {
 
     @Override
     public List<Provider> findProvidersByConsortiumId(String consortiumId, int page, int size) {
+//        https://api.datacite.org/providers?consortium-id=daraco&page[size]=10&page[number]=2
         String path = String.format(
                 "/providers?consortium-id=%s&page[number]=%d&page[size]=%d",
                 consortiumId, page, size);
@@ -42,6 +43,7 @@ public class DataciteRepository implements DoiRepository {
 
     @Override
     public List<Client> findClientsByProviderId(String providerId, int page, int size) {
+//        https://api.datacite.org/clients?provider-id=jjuz&page\[number\]=1&page\[size\]=10
         String path = String.format(
                 "/clients?provider-id=%s&page[number]=%d&page[size]=%d",
                 providerId, page, size);
@@ -70,6 +72,7 @@ public class DataciteRepository implements DoiRepository {
 
     @Override
     public Long countDoiByClientId(String clientId) {
+//        https://api.datacite.org/dois?client-id=gesis.ahri
         String path = String.format("/dois?client-id=%s", clientId);
         String response = HttpHelper.getCall(url + path);
         ObjectMapper mapper = new ObjectMapper();
