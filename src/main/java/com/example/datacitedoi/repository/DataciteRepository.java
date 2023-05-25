@@ -22,7 +22,7 @@ public class DataciteRepository implements DoiRepository {
     @Override
     public List<Provider> findProvidersByConsortiumId(String consortiumId, int page, int size) {
         String path = String.format(
-                "/providers?consortium-id=%s&page[number]=%o&page[size]=%o",
+                "/providers?consortium-id=%s&page[number]=%d&page[size]=%d",
                 consortiumId, page, size);
         String response = HttpHelper.getCall(url + path);
         ObjectMapper mapper = new ObjectMapper();
@@ -43,7 +43,7 @@ public class DataciteRepository implements DoiRepository {
     @Override
     public List<Client> findClientsByProviderId(String providerId, int page, int size) {
         String path = String.format(
-                "/clients?provider-id=%s&page[number]=%o&page[size]=%o",
+                "/clients?provider-id=%s&page[number]=%d&page[size]=%d",
                 providerId, page, size);
         String response = HttpHelper.getCall(url + path);
         ObjectMapper mapper = new ObjectMapper();
