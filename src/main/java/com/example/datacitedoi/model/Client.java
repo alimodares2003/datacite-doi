@@ -1,4 +1,6 @@
 package com.example.datacitedoi.model;
 
-public record Client(String id, String name, String prefix) {
+import java.util.List;
+
+public record Client(String id, String type, String name, String created, List<String> prefixes) {
 }

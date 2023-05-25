@@ -4,9 +4,11 @@ import com.example.datacitedoi.model.Client;
 import com.example.datacitedoi.model.Provider;
 import com.example.datacitedoi.model.response.DoiResponse;
 import com.example.datacitedoi.repository.DoiRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DoiServiceImpl implements DoiService {
     private final DoiRepository doiRepository;
 
@@ -15,13 +17,13 @@ public class DoiServiceImpl implements DoiService {
     }
 
     @Override
-    public List<Provider> fetchProviders(String consortiumId, int limit, int size) {
-        return doiRepository.findProvidersByConsortiumId(consortiumId, limit, size);
+    public List<Provider> fetchProviders(String consortiumId, int page, int size) {
+        return doiRepository.findProvidersByConsortiumId(consortiumId, page, size);
     }
 
     @Override
-    public List<Client> fetchClients(String providerId, int limit, int size) {
-        return doiRepository.findClientsByProviderId(providerId, limit, size);
+    public List<Client> fetchClients(String providerId, int page, int size) {
+        return doiRepository.findClientsByProviderId(providerId, page, size);
     }
 
     @Override
